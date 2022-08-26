@@ -8,9 +8,11 @@
     "build": "vite build",
     "preview": "vite preview",
     "prepare": "husky install",
-    "commit": "git-cz"
+    "commit": "git-cz",
+    "eslint": "eslint ."
   },
   "dependencies": {
+    "eslint": "^8.22.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
@@ -22,6 +24,7 @@
     "@vitejs/plugin-react": "^2.0.1",
     "commitizen": "^4.2.5",
     "cz-conventional-changelog": "3.3.0",
+    "eslint-plugin-react": "^7.31.1",
     "husky": "^8.0.1",
     "vite": "^3.0.7"
   },
@@ -29,5 +32,33 @@
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"
     }
-  }
+  },
+  "import/order": [
+    2,
+    {
+      "newlines-between": "always",
+      "groups": [
+        "builtin",
+        "external",
+        "internal",
+        "parent",
+        "sibling",
+        "index",
+        "unknown",
+        "object",
+        "type"
+      ],
+      "alphabetize": {
+        "order": "asc",
+        "caseInsensitive": true
+      },
+      "pathGroups": [
+        {
+          "pattern": "react*",
+          "group": "external",
+          "position": "before"
+        }
+      ]
+    }
+  ]
 }
