@@ -1,7 +1,6 @@
 module.exports = {
   env: {
     browser: true,
-    common: true,
     es6: true,
   },
   extends: ['eslint:recommended', 'plugin:react/recommended'],
