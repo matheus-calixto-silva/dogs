@@ -29,4 +29,9 @@ const getUser = async (token) => {
   return request.data;
 };
 
-export { getToken, tokenValidate, getUser };
+const createUser = async (userData) => {
+  const request = await axios.post(`${baseUrl}/api/user`, userData);
+  return request.data;
+};
+
+export { getToken, tokenValidate, getUser, createUser };
