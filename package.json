@@ -36,33 +36,5 @@
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"
     }
-  },
-  "import/order": [
-    2,
-    {
-      "newlines-between": "always",
-      "groups": [
-        "builtin",
-        "external",
-        "internal",
-        "parent",
-        "sibling",
-        "index",
-        "unknown",
-        "object",
-        "type"
-      ],
-      "alphabetize": {
-        "order": "asc",
-        "caseInsensitive": true
-      },
-      "pathGroups": [
-        {
-          "pattern": "react*",
-          "group": "external",
-          "position": "before"
-        }
-      ]
-    }
-  ]
+  }
 }
