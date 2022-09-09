@@ -7,7 +7,6 @@ import styles from './UserHeader.module.css';
 const UserHeader = () => {
   const [title, setTitle] = useState('');
   const location = useLocation();
-  console.log(location);
 
   useEffect(() => {
     const { pathname } = location;
