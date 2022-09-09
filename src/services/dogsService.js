@@ -34,4 +34,14 @@ const createUser = async (userData) => {
   return request.data;
 };
 
-export { getToken, tokenValidate, getUser, createUser };
+const photoPost = async (formData) => {
+  const token = window.localStorage.getItem('token');
+  const request = await axios.post(`${baseUrl}/api/photo`, formData, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+  return request.data;
+};
+
+export { getToken, tokenValidate, getUser, createUser, photoPost };
