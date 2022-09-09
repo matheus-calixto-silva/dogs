@@ -7,19 +7,18 @@ const useFetch = () => {
 
   const request = useCallback(async (func, params) => {
     let response;
-    let json;
+
     try {
       setError(null);
       setLoading(true);
       response = await func(params);
     } catch (err) {
-      json = null;
       setError(err.response.data.message);
     } finally {
-      setData(json);
+      setData(response);
       setLoading(false);
-      return { response, json };
     }
+    return response;
   }, []);
 
   return {
