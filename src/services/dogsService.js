@@ -56,4 +56,21 @@ const getPhotos = async ({ page, total, user }) => {
   return request.data;
 };
 
-export { getToken, tokenValidate, getUser, createUser, photoPost, getPhotos };
+const getPhoto = async (id) => {
+  const request = await axios.get(`${baseUrl}/api/photo/${id}`, {
+    options: {
+      cache: 'no-store',
+    },
+  });
+  return request.data;
+};
+
+export {
+  getToken,
+  tokenValidate,
+  getUser,
+  createUser,
+  photoPost,
+  getPhotos,
+  getPhoto,
+};
