@@ -10,13 +10,12 @@ import { getPhotos } from '../../services/dogsService';
 
 import styles from './FeedPhotos.module.css';
 
-const FeedPhotos = () => {
+const FeedPhotos = ({ setModalPhoto }) => {
   const { data, loading, error, request } = useFetch();
 
   useEffect(() => {
     const fetchPhotos = async () => {
-      const req = await request(getPhotos, { page: 1, total: 6, user: 0 });
-      console.log(req);
+      await request(getPhotos, { page: 1, total: 6, user: 0 });
     };
     fetchPhotos();
   }, [request]);
@@ -27,7 +26,11 @@ const FeedPhotos = () => {
     return (
       <div className={`${styles.feed} animeLeft`}>
         {data.map((photo) => (
-          <FeedPhotosItem key={photo.id} photo={photo} />
+          <FeedPhotosItem
+            key={photo.id}
+            photo={photo}
+            setModalPhoto={setModalPhoto}
+          />
         ))}
       </div>
     );
