@@ -65,6 +65,18 @@ const getPhoto = async (id) => {
   return request.data;
 };
 
+const commentPhoto = async ({ id, comment }) => {
+  const token = window.localStorage.getItem('token');
+
+  const request = await axios.post(`${baseUrl}/api/comment/${id}`, comment, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+
+  return request.data;
+};
+
 export {
   getToken,
   tokenValidate,
@@ -73,4 +85,5 @@ export {
   photoPost,
   getPhotos,
   getPhoto,
+  commentPhoto,
 };
