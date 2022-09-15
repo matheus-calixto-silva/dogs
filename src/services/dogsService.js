@@ -77,6 +77,18 @@ const commentPhoto = async ({ id, comment }) => {
   return request.data;
 };
 
+const deletePhoto = async (id) => {
+  const token = window.localStorage.getItem('token');
+
+  const request = await axios.delete(`${baseUrl}/api/photo/${id}`, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+
+  return request.data;
+};
+
 export {
   getToken,
   tokenValidate,
@@ -86,4 +98,5 @@ export {
   getPhotos,
   getPhoto,
   commentPhoto,
+  deletePhoto,
 };
