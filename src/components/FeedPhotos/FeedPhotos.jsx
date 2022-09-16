@@ -10,15 +10,24 @@ import { getPhotos } from '../../services/dogsService';
 
 import styles from './FeedPhotos.module.css';
 
-const FeedPhotos = ({ setModalPhoto }) => {
+const FeedPhotos = ({ user, page, setModalPhoto, setInfinite }) => {
   const { data, loading, error, request } = useFetch();
 
   useEffect(() => {
     const fetchPhotos = async () => {
-      await request(getPhotos, { page: 1, total: 6, user: 0 });
+      const total = 3;
+      const response = await request(getPhotos, {
+        page,
+        total,
+        user,
+      });
+
+      if (response && response.length < total) {
+        setInfinite(false);
+      }
     };
     fetchPhotos();
-  }, [request]);
+  }, [request, user, page, setInfinite]);
 
   if (error) return <Error error={error} />;
   if (loading) return <Loading />;
