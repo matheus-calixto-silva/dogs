@@ -48,9 +48,7 @@ const getPhotos = async ({ page, total, user }) => {
   const request = await axios.get(
     `${baseUrl}/api/photo/?page=${page}&_total=${total}&_user=${user}`,
     {
-      options: {
-        cache: 'no-store',
-      },
+      cache: 'no-store',
     }
   );
   return request.data;
@@ -58,9 +56,7 @@ const getPhotos = async ({ page, total, user }) => {
 
 const getPhoto = async (id) => {
   const request = await axios.get(`${baseUrl}/api/photo/${id}`, {
-    options: {
-      cache: 'no-store',
-    },
+    cache: 'no-store',
   });
   return request.data;
 };
