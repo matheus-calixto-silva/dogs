@@ -90,6 +90,11 @@ const passwordLost = async (userData) => {
   return request.data;
 };
 
+const passwordReset = async (userData) => {
+  const request = await axios.post(`${baseUrl}/api/password/reset`, userData);
+  return request.data;
+};
+
 export {
   getToken,
   tokenValidate,
@@ -101,4 +106,5 @@ export {
   commentPhoto,
   deletePhoto,
   passwordLost,
+  passwordReset,
 };
