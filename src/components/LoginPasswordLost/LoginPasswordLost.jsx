@@ -1,6 +1,7 @@
 import Input from '../Input/Input';
 import Button from '../Button/Button';
 import Error from '../Error/Error';
+import Head from '../Head/Head';
 
 import useForm from '../../hooks/useForm.js';
 import useFetch from '../../hooks/useFetch.js';
@@ -22,6 +23,7 @@ const LoginPasswordLost = () => {
 
   return (
     <section>
+      <Head title={'Perdeu a senha'} />
       <h1 className='title'>Perdeu a senha?</h1>
       {data ? (
         <p style={{ color: '#4c1' }}>{data}</p>

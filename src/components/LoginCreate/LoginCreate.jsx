@@ -3,6 +3,7 @@ import { useContext } from 'react';
 import Input from '../Input/Input';
 import Button from '../Button/Button';
 import Error from '../Error/Error';
+import Head from '../Head/Head';
 
 import useForm from '../../hooks/useForm';
 import useFetch from '../../hooks/useFetch';
@@ -29,11 +30,14 @@ const LoginCreate = () => {
       password: password.value,
     });
 
-    if (typeof req.response === 'number') userLogin(username.value, password.value);
+    if (typeof req.response === 'number')
+      userLogin(username.value, password.value);
   };
 
   return (
     <section className='animeLeft'>
+      <Head title={'Criar Conta'} />
+
       <h1 className='title'>Cadastre-se</h1>
       <form onSubmit={handleSubmit}>
         <Input

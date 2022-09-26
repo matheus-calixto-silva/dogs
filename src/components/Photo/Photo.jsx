@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom';
 import Error from '../Error/Error';
 import Loading from '../Loading/Loading';
 import PhotoContent from '../PhotoContent/PhotoContent';
+import Head from '../Head/Head';
 
 import useFetch from '../../hooks/useFetch';
 
@@ -25,6 +26,7 @@ const Photo = () => {
   if (data)
     return (
       <section className='container mainContainer'>
+        <Head title={data.photo.title} />
         <PhotoContent data={data} single={true} />
       </section>
     );

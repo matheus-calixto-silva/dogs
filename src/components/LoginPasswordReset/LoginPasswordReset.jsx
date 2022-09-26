@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import Input from '../Input/Input';
 import Button from '../Button/Button';
 import Error from '../Error/Error';
+import Head from '../Head/Head';
 
 import useForm from '../../hooks/useForm.js';
 import useFetch from '../../hooks/useFetch.js';
@@ -39,6 +40,7 @@ const LoginPasswordReset = () => {
 
   return (
     <div>
+      <Head title={'Resetar senha'} />
       <h1 className='title'>Resete a senha</h1>
       <form onSubmit={handleSubmit}>
         <Input
