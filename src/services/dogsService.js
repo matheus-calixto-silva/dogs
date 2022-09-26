@@ -85,6 +85,11 @@ const deletePhoto = async (id) => {
   return request.data;
 };
 
+const passwordLost = async (userData) => {
+  const request = await axios.post(`${baseUrl}/api/password/lost`, userData);
+  return request.data;
+};
+
 export {
   getToken,
   tokenValidate,
@@ -95,4 +100,5 @@ export {
   getPhoto,
   commentPhoto,
   deletePhoto,
+  passwordLost,
 };
