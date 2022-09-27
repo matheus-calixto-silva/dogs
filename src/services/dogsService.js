@@ -95,6 +95,15 @@ const passwordReset = async (userData) => {
   return request.data;
 };
 
+const getStats = async (token) => {
+  const request = await axios.get(`${baseUrl}/api/stats`, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+  return request.data;
+};
+
 export {
   getToken,
   tokenValidate,
@@ -107,4 +116,5 @@ export {
   deletePhoto,
   passwordLost,
   passwordReset,
+  getStats,
 };
