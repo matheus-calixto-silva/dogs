@@ -6,18 +6,37 @@ import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
 import Home from './components/Home/Home';
 import Login from './components/Login/Login';
+import User from './components/User/User.jsx';
+import UserProfile from './components/UserProfile/UserProfile';
+import Photo from './components/Photo/Photo';
+import NotFound from './components/NotFound/NotFound';
+import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute';
+
 import { UserStorage } from './contexts/UserContext';
 
 const App = () => {
   return (
-    <div>
+    <div className='App'>
       <BrowserRouter>
         <UserStorage>
           <Header />
-          <Routes>
-            <Route path='/' element={<Home />} />
-            <Route path='/login/*' element={<Login />} />
-          </Routes>
+          <main className='AppBody'>
+            <Routes>
+              <Route path='/' element={<Home />} />
+              <Route path='/login/*' element={<Login />} />
+              <Route
+                path='/conta/*'
+                element={
+                  <ProtectedRoute>
+                    <User />
+                  </ProtectedRoute>
+                }
+              />
+              <Route path='/foto/:id' element={<Photo />} />
+              <Route path='/perfil/:user' element={<UserProfile />} />
+              <Route path='*' element={<NotFound />} />
+            </Routes>
+          </main>
           <Footer />
         </UserStorage>
       </BrowserRouter>
